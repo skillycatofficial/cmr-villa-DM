@@ -12,6 +12,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<!-- reCAPTCHA v3 — same site key + action ('enquiry') as the main site's /api/enquiry, so this page's
+     leads pass the same spam check. The site's domain must be added under this key in the Google
+     reCAPTCHA admin console (g.co/recaptcha/admin) or token generation will silently fail. -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LdEOZ4tAAAAAF6Mr_D6ng2AR4LMAU3e6BKe5W01"></script>
 <script>
   tailwind.config = {
     theme: {
@@ -118,7 +122,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Right: single outcome image -->
       <div class="lg:col-span-6">
         <div class="rounded-2xl shadow-2xl w-full h-72 sm:h-96 lg:h-[500px] overflow-hidden">
-          <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/09/aina-harmony-angamaly-scaled.jpeg" alt="Aina Harmony luxury villas in Angamaly, Ernakulam" class="content-photo" fetchpriority="high">
+          <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/banner_1-8.jpg" alt="Aina Harmony luxury villa in Angamaly, Ernakulam" class="content-photo" fetchpriority="high">
         </div>
       </div>
     </div>
@@ -130,7 +134,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hidden sm:block w-px h-10 bg-white/15"></div>
         <div class="px-1"><span class="font-extrabold text-white text-2xl sm:text-3xl block">600+</span><span class="text-white/70 text-xs sm:text-sm">Villas Delivered</span></div>
         <div class="hidden sm:block w-px h-10 bg-white/15"></div>
-        <div class="px-1"><span class="font-extrabold text-white text-2xl sm:text-3xl block">ISO 9001</span><span class="text-white/70 text-xs sm:text-sm">Certified Builder</span></div>
+        <div class="px-1"><span class="font-extrabold text-white text-2xl sm:text-3xl block">ISO 9001:2015</span><span class="text-white/70 text-xs sm:text-sm">Certified Builder</span></div>
       </div>
     </div>
   </div>
@@ -165,7 +169,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="bg-sagetint py-16 sm:py-20">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="font-serif font-semibold text-ink text-[28px] sm:text-3xl lg:text-4xl mb-6">
-      Buying a Villa From Abroad, or in Between Two Jobs, Shouldn't Feel Like a Second Full-Time Job.
+      You're Thousands of Miles Away. Your Villa Purchase Shouldn't Take Over Your Evenings and Weekends.
     </h2>
     <p class="text-bodytext text-lg mb-6" style="line-height:1.6;">
       If you're weighing a villa purchase in Kerala right now, a few questions are probably on your mind:
@@ -373,7 +377,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ============ FOOTER (stripped, paid-ad LP) ============ -->
 <footer class="bg-ink py-6">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <p class="text-white/50 text-xs">© 2026 CMR Developers Pvt. Ltd. All rights reserved. <a href="https://mail.cmrdevelopers.com/privacypolicy.php" class="underline">Privacy</a> · <a href="/terms" class="underline">Terms</a></p>
+    <p class="text-white/50 text-xs">© 2026 CMR Developers Pvt. Ltd. All rights reserved. <a href="https://cmrdevelopers.com/privacy" class="underline">Privacy</a> · <a href="/terms" class="underline">Terms</a></p>
   </div>
 </footer>
 
@@ -404,7 +408,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <option value="Within 6 months">Within 6 months</option>
           <option value="Just exploring options">Just exploring options</option>
         </select>
-        <button type="submit" class="w-full bg-gold hover:bg-goldsoft text-white font-bold py-3.5 rounded-lg text-sm transition-colors">
+        <p id="form-error" class="hidden text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-4 py-3 mb-3"></p>
+        <button id="lead-submit-btn" type="submit" class="w-full bg-gold hover:bg-goldsoft text-white font-bold py-3.5 rounded-lg text-sm transition-colors disabled:opacity-50">
           Confirm My Site Visit Request
         </button>
         <p class="text-xs text-bodytext/70 text-center mt-3">No spam. We respect your privacy.</p>
@@ -413,8 +418,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div id="modal-success-state" class="hidden p-7 text-center">
       <h3 class="font-serif font-semibold text-ink text-xl mb-2">Request Received</h3>
-      <p class="text-bodytext text-sm mb-4">Our team will call you within 24 hours to confirm your site visit slot.</p>
-      <p class="text-bodytext text-sm">Prefer to talk now? <a href="tel:+919744475555" onclick="trackCall('modal_success')" class="text-gold font-semibold underline">Talk to Chairman</a></p>
+      <p class="text-bodytext text-sm mb-4">Thank you for showing your interest. Our team will be in touch with you soon to confirm your site visit slot.</p>
+      <a href="https://cmrdevelopers.com" class="text-gold font-semibold underline text-sm">Visit Website</a>
+      <p class="text-bodytext text-sm mt-4">Prefer to talk now? <a href="tel:+919744475555" onclick="trackCall('modal_success')" class="text-gold font-semibold underline">Talk to Chairman</a></p>
     </div>
   </div>
 </div>
@@ -443,29 +449,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (e.key === 'Escape') closeModal();
   });
 
+  // Same endpoint + payload shape as EnquireForm on the main Next.js site
+  // (app/(site)/projects/[slug]/EnquireForm.tsx -> POST /api/enquiry), so
+  // leads from this page land in the same inbox with the same spam check.
+  var ENQUIRY_API = 'https://www.cmrdevelopers.com/api/enquiry';
+  var RECAPTCHA_SITE_KEY = '6LdEOZ4tAAAAAF6Mr_D6ng2AR4LMAU3e6BKe5W01';
+
+  function getRecaptchaToken(action){
+    return new Promise(function(resolve){
+      if (!window.grecaptcha) { resolve(null); return; }
+      try {
+        window.grecaptcha.ready(function(){
+          window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: action })
+            .then(resolve)
+            .catch(function(){ resolve(null); });
+        });
+      } catch (err) {
+        resolve(null);
+      }
+    });
+  }
+
   function handleSubmit(e){
     e.preventDefault();
     var form = e.target;
-    var data = {
-      firstName: form.firstName.value,
-      lastName: form.lastName.value,
-      phone: form.phone.value,
-      email: form.email.value,
-      purchaseTimeline: form.purchaseTimeline.value,
-      ctaSource: currentCtaSource,
-      pageUrl: window.location.href
-    };
+    var submitBtn = document.getElementById('lead-submit-btn');
+    var errorEl = document.getElementById('form-error');
+    errorEl.classList.add('hidden');
 
-    // TODO: replace with real Leadmetrics SDK call once tenant is onboarded:
-    // if (typeof lm !== 'undefined' && lm.formService) { lm.formService.submitLead({...data, leadSource:'LP - CMR Aina Harmony'}); }
-    console.log('Lead submitted:', data);
+    var firstName = form.firstName.value.trim();
+    var lastName = form.lastName.value.trim();
+    var purchaseTimeline = form.purchaseTimeline.value;
 
-    if (window.dataLayer) {
-      dataLayer.push({event:'lead_form_submit', cta_source: currentCtaSource, purchase_timeline: data.purchaseTimeline});
-    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
 
-    document.getElementById('modal-form-state').classList.add('hidden');
-    document.getElementById('modal-success-state').classList.remove('hidden');
+    getRecaptchaToken('enquiry').then(function(recaptchaToken){
+      return fetch(ENQUIRY_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: (firstName + ' ' + lastName).trim(),
+          email: form.email.value.trim(),
+          phone: form.phone.value.trim(),
+          message: 'Site visit request for Aina Harmony, Angamaly. Purchase timeline: ' + purchaseTimeline +
+            '. CTA source: ' + currentCtaSource + '. Page: ' + window.location.href,
+          projectName: 'Aina Harmony',
+          projectLocation: 'Angamaly, Ernakulam',
+          recaptchaToken: recaptchaToken
+        })
+      });
+    }).then(function(res){
+      if (!res.ok) {
+        return res.json().catch(function(){ return {}; }).then(function(data){
+          throw new Error(data && data.error ? data.error : 'Something went wrong. Please try again.');
+        });
+      }
+
+      if (window.dataLayer) {
+        dataLayer.push({event:'lead_form_submit', cta_source: currentCtaSource, purchase_timeline: purchaseTimeline});
+      }
+
+      document.getElementById('modal-form-state').classList.add('hidden');
+      document.getElementById('modal-success-state').classList.remove('hidden');
+    }).catch(function(err){
+      errorEl.textContent = err.message || 'Submission failed. Please try again or call us directly.';
+      errorEl.classList.remove('hidden');
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Confirm My Site Visit Request';
+    });
+
     return false;
   }
 
