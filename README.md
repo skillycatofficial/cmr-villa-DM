@@ -29,3 +29,6 @@ image files need to be uploaded alongside these pages.
 `aiza-harmony-mulanthuruthy/index.html`'s form currently shows a confirmation
 message and sends GTM events, but it does not yet send lead data to an API,
 email inbox, or CRM.
+
+<!-- deploy-test-marker: auto-deploy verification -->
+
