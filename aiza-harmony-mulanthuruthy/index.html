@@ -28,6 +28,8 @@
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230F3D2E'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='24' font-weight='700' fill='%23C9A227' text-anchor='middle'%3ECMR%3C/text%3E%3C/svg%3E" />
 
+  <!-- reCAPTCHA v3 — same site key + action ('enquiry') as the main site's /api/enquiry (and the Aina page). -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdEOZ4tAAAAAF6Mr_D6ng2AR4LMAU3e6BKe5W01"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -194,7 +196,8 @@
                 <option value="within-6-months">Within 6 months</option>
                 <option value="exploring">Just exploring options</option>
               </select>
-              <button type="submit" class="btn-cta w-full block text-center" style="padding:14px;">
+              <p id="form-error" class="hidden text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2"></p>
+              <button type="submit" id="lead-submit-btn" class="btn-cta w-full block text-center" style="padding:14px;">
                 Schedule a Site Visit &rarr;
               </button>
               <p class="text-xs text-slate-400 text-center pt-1">No spam. We respect your privacy.</p>
@@ -681,29 +684,78 @@
   </footer>
 
   <script>
+    // Same endpoint + payload shape as the Aina Harmony page and the main site's EnquireForm
+    // (POST /api/enquiry), so leads land in the same inbox with the same spam check.
+    var ENQUIRY_API = 'https://www.cmrdevelopers.com/api/enquiry';
+    var RECAPTCHA_SITE_KEY = '6LdEOZ4tAAAAAF6Mr_D6ng2AR4LMAU3e6BKe5W01';
+
+    function getRecaptchaToken(action) {
+      return new Promise(function (resolve) {
+        if (!window.grecaptcha) { resolve(null); return; }
+        try {
+          window.grecaptcha.ready(function () {
+            window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: action })
+              .then(resolve)
+              .catch(function () { resolve(null); });
+          });
+        } catch (err) {
+          resolve(null);
+        }
+      });
+    }
+
     function handleSubmit(e) {
       e.preventDefault();
       var form = e.target;
-      var data = {
-        name: form.name.value,
-        phone: form.phone.value,
-        email: form.email.value,
-        timeline: form.timeline.value
-      };
+      var submitBtn = document.getElementById('lead-submit-btn');
+      var errorEl = document.getElementById('form-error');
+      var btnLabel = submitBtn.innerHTML;
+      errorEl.classList.add('hidden');
 
-      // TODO before launch: wire to the client's CRM / lead endpoint of choice.
-      // Placeholder behavior below just shows the success state and fires the GTM event.
+      var timeline = form.timeline.value;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
 
-      if (window.dataLayer) {
-        dataLayer.push({
-          event: 'lead_form_submit',
-          leadSource: 'LP - CMR Aiza Harmony',
-          purchaseTimeline: data.timeline
+      getRecaptchaToken('enquiry').then(function (recaptchaToken) {
+        return fetch(ENQUIRY_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.elements.name.value.trim(),
+            email: form.email.value.trim(),
+            phone: form.phone.value.trim(),
+            message: 'Site visit request for Aiza Harmony, Mulanthuruthy. Purchase timeline: ' + timeline +
+              '. Page: ' + window.location.href,
+            projectName: 'Aiza Harmony',
+            projectLocation: 'Mulanthuruthy, Ernakulam',
+            recaptchaToken: recaptchaToken
+          })
         });
-      }
+      }).then(function (res) {
+        if (!res.ok) {
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            throw new Error(data && data.error ? data.error : 'Something went wrong. Please try again.');
+          });
+        }
 
-      form.classList.add('hidden');
-      document.getElementById('success-state').classList.remove('hidden');
+        if (window.dataLayer) {
+          dataLayer.push({
+            event: 'lead_form_submit',
+            leadSource: 'LP - CMR Aiza Harmony',
+            purchaseTimeline: timeline
+          });
+        }
+
+        form.classList.add('hidden');
+        document.getElementById('success-state').classList.remove('hidden');
+      }).catch(function (err) {
+        errorEl.textContent = err.message || 'Submission failed. Please try again or call us directly.';
+        errorEl.classList.remove('hidden');
+      }).finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = btnLabel;
+      });
+
       return false;
     }
   </script>
