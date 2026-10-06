@@ -30,5 +30,5 @@ image files need to be uploaded alongside these pages.
 message and sends GTM events, but it does not yet send lead data to an API,
 email inbox, or CRM.
 
-<!-- deploy-test-marker: auto-deploy verification -->
+<!-- deploy-test-marker: auto-deploy verification 2026-10-06 -->
 
