@@ -78,6 +78,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="https://www.cmrdevelopers.com/images/cmr-logo.png" alt="CMR Developers" class="brand-logo" style="width:150px;height:44px;">
     </a>
     <nav class="hidden md:flex items-center gap-8" aria-label="Main menu">
+      <a href="#top" class="text-bodytext hover:text-gold text-sm font-semibold transition-colors">Home</a>
       <a href="#amenities" class="text-bodytext hover:text-gold text-sm font-semibold transition-colors">Amenities</a><a href="#gallery" class="text-bodytext hover:text-gold text-sm font-semibold transition-colors">Gallery</a><a href="#location" class="text-bodytext hover:text-gold text-sm font-semibold transition-colors">Location</a><a href="#faq" class="text-bodytext hover:text-gold text-sm font-semibold transition-colors">FAQ</a>
     </nav>
     <div class="flex items-center gap-3">
@@ -90,16 +91,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <nav id="mobile-menu" class="hidden md:hidden border-t border-sagetint bg-white px-4 pb-2" aria-label="Mobile menu">
+    <a href="#top" onclick="toggleMenu()" class="block py-3 text-ink font-semibold text-[15px] border-b border-sagetint">Home</a>
     <a href="#amenities" onclick="toggleMenu()" class="block py-3 text-ink font-semibold text-[15px] border-b border-sagetint">Amenities</a><a href="#gallery" onclick="toggleMenu()" class="block py-3 text-ink font-semibold text-[15px] border-b border-sagetint">Gallery</a><a href="#location" onclick="toggleMenu()" class="block py-3 text-ink font-semibold text-[15px] border-b border-sagetint">Location</a><a href="#faq" onclick="toggleMenu()" class="block py-3 text-ink font-semibold text-[15px] border-b border-sagetint">FAQ</a>
   </nav>
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="hero-solid relative">
+<section id="top" class="hero-solid relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 items-center">
 
       <div class="lg:col-span-6 text-white">
+        <p class="text-goldsoft text-sm font-semibold mb-4">Aina Harmony, Angamaly</p>
         <h1 class="font-serif font-semibold text-[32px] sm:text-4xl lg:text-[42px]" style="line-height:1.3;">
           Gated Community Villas for Sale in Angamaly, Kochi
         </h1>
