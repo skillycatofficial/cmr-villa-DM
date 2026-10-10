@@ -71,55 +71,52 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JF38Z73"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- ============ HEADER ============ -->
+<!-- ============ HEADER (with menu) ============ -->
 <header class="bg-white border-b border-sagetint sticky top-0 z-40">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
     <a href="https://www.cmrdevelopers.com/" aria-label="CMR Developers home">
       <img src="https://www.cmrdevelopers.com/images/cmr-logo.png" alt="CMR Developers" class="brand-logo" style="width:150px;height:44px;">
     </a>
-    <button onclick="openModal('header')" class="bg-gold hover:bg-goldsoft text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-colors">
-      Book a Site Visit
-    </button>
+    <nav class="hidden md:flex items-center gap-8" aria-label="Main menu">
+      <a href="#amenities" class="text-bodytext hover:text-gold text-sm font-semibold transition-colors">Amenities</a><a href="#gallery" class="text-bodytext hover:text-gold text-sm font-semibold transition-colors">Gallery</a><a href="#location" class="text-bodytext hover:text-gold text-sm font-semibold transition-colors">Location</a><a href="#faq" class="text-bodytext hover:text-gold text-sm font-semibold transition-colors">FAQ</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button onclick="openModal('header')" class="hidden sm:inline-block bg-gold hover:bg-goldsoft text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-colors">
+        Book a Site Visit
+      </button>
+      <button id="menu-btn" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" class="md:hidden p-2 text-ink">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
   </div>
+  <nav id="mobile-menu" class="hidden md:hidden border-t border-sagetint bg-white px-4 pb-2" aria-label="Mobile menu">
+    <a href="#amenities" onclick="toggleMenu()" class="block py-3 text-ink font-semibold text-[15px] border-b border-sagetint">Amenities</a><a href="#gallery" onclick="toggleMenu()" class="block py-3 text-ink font-semibold text-[15px] border-b border-sagetint">Gallery</a><a href="#location" onclick="toggleMenu()" class="block py-3 text-ink font-semibold text-[15px] border-b border-sagetint">Location</a><a href="#faq" onclick="toggleMenu()" class="block py-3 text-ink font-semibold text-[15px] border-b border-sagetint">FAQ</a>
+  </nav>
 </header>
 
-<!-- ============ HERO — Layout B: solid brand bg left, single outcome image right. ONE CTA above the fold. ============ -->
+<!-- ============ HERO ============ -->
 <section class="hero-solid relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 items-center">
 
-      <!-- Left: copy -->
       <div class="lg:col-span-6 text-white">
-        <p class="text-goldsoft text-sm font-semibold mb-4">Aina Harmony · Angamaly, Ernakulam</p>
         <h1 class="font-serif font-semibold text-[32px] sm:text-4xl lg:text-[42px]" style="line-height:1.3;">
-          Turn the Dream of Your Home Into a Beautiful Reality.
+          Gated Community Villas for Sale in Angamaly, Kochi
         </h1>
         <p class="mt-5 text-[17px] text-[#D7E3DB] max-w-lg" style="line-height:1.6;">
-          Experience the comfort of a thoughtfully designed villa, surrounded by greenery, community,
-          and everything you need to feel at home. With 14+ years of experience and 600+ villas delivered,
-          CMR Developers brings trusted expertise to every home we create.
+          Discover thoughtfully designed villas in a green community, backed by 14+ years of experience and 600+ villas delivered.
         </p>
 
-        <div class="mt-8">
+        <div class="mt-8 flex flex-wrap gap-4">
           <button onclick="openModal('hero_primary')" class="bg-gold hover:bg-goldsoft text-white font-bold px-7 py-4 rounded-lg text-[15px] transition-colors">
             Book a Site Visit
           </button>
-        </div>
-
-        <!-- Risk reversal row (informational, not a second CTA) -->
-        <div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <div class="flex items-center gap-2 text-white/90 text-sm">
-            <svg class="w-4 h-4 text-goldsoft flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span class="font-semibold">ISO 9001:2015 Certified Builder</span>
-          </div>
-          <div class="flex items-center gap-2 text-white/90 text-sm">
-            <svg class="w-4 h-4 text-goldsoft flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-            <span class="font-semibold">Bank-Approved, 5 Major Lenders</span>
-          </div>
+          <a href="tel:+919744475555" onclick="trackCall('hero_chairman')" class="inline-flex items-center gap-2 border border-white/40 hover:border-white text-white font-semibold px-7 py-4 rounded-lg text-[15px] transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg> Talk to Chairman
+          </a>
         </div>
       </div>
 
-      <!-- Right: single outcome image -->
       <div class="lg:col-span-6">
         <div class="rounded-2xl shadow-2xl w-full h-72 sm:h-96 lg:h-[500px] overflow-hidden">
           <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/banner_1-8.jpg" alt="Aina Harmony luxury villa in Angamaly, Ernakulam" class="content-photo" fetchpriority="high">
@@ -127,23 +124,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <!-- Trust bar (above the fold) -->
     <div class="mt-12 pt-6 border-t border-white/15">
-      <div class="flex items-center justify-around sm:justify-between gap-4 flex-wrap sm:flex-nowrap text-center sm:text-left">
-        <div class="px-1"><span class="font-extrabold text-white text-2xl sm:text-3xl block">14+</span><span class="text-white/70 text-xs sm:text-sm">Years in Kerala</span></div>
-        <div class="hidden sm:block w-px h-10 bg-white/15"></div>
-        <div class="px-1"><span class="font-extrabold text-white text-2xl sm:text-3xl block">600+</span><span class="text-white/70 text-xs sm:text-sm">Villas Delivered</span></div>
-        <div class="hidden sm:block w-px h-10 bg-white/15"></div>
-        <div class="px-1"><span class="font-extrabold text-white text-2xl sm:text-3xl block">ISO 9001:2015</span><span class="text-white/70 text-xs sm:text-sm">Certified Builder</span></div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center sm:text-left">
+        <div><span class="font-extrabold text-white text-2xl sm:text-3xl block">14+</span><span class="text-white/70 text-xs sm:text-sm">Years Experience</span></div>
+        <div><span class="font-extrabold text-white text-2xl sm:text-3xl block">600+</span><span class="text-white/70 text-xs sm:text-sm">Happy Families</span></div>
+        <div><span class="font-extrabold text-white text-2xl sm:text-3xl block">15+</span><span class="text-white/70 text-xs sm:text-sm">Completed Projects</span></div>
+        <div><span class="font-extrabold text-white text-2xl sm:text-3xl block">ISO: 9001:2015</span><span class="text-white/70 text-xs sm:text-sm">Certified Builder</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PERFORMANCE STATS BAND — Aina Harmony specific ============ -->
+<!-- ============ AT A GLANCE ============ -->
 <section class="bg-white py-14 border-b border-sagetint">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <p class="text-sage font-semibold text-sm mb-8 text-center">Aina Harmony at a glance</p>
+    <h2 class="font-serif font-semibold text-ink text-[26px] sm:text-3xl mb-8 text-center">Aina Harmony Villa Project at a glance</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
       <div class="text-center">
         <div class="font-serif font-semibold text-ink text-4xl sm:text-5xl mb-1">32</div>
@@ -151,10 +146,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="text-center">
         <div class="font-serif font-semibold text-ink text-4xl sm:text-5xl mb-1">3 BHK</div>
-        <div class="text-bodytext text-sm">6–10 cents, 1,500–2,800 sq.ft.</div>
+        <div class="text-bodytext text-sm">1,500&ndash;2,800 sqft.</div>
       </div>
       <div class="text-center">
-        <div class="font-serif font-semibold text-ink text-4xl sm:text-5xl mb-1">₹60L</div>
+        <div class="font-serif font-semibold text-ink text-4xl sm:text-5xl mb-1">&#8377;60Lacs</div>
         <div class="text-bodytext text-sm">Onwards</div>
       </div>
       <div class="text-center">
@@ -165,127 +160,150 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ============ PAIN SECTION (light PAS) ============ -->
+<!-- ============ VIDEO ============ -->
 <section class="bg-sagetint py-16 sm:py-20">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="font-serif font-semibold text-ink text-[28px] sm:text-3xl lg:text-4xl mb-6">
-      You're Thousands of Miles Away. Your Villa Purchase Shouldn't Take Over Your Evenings and Weekends.
-    </h2>
-    <p class="text-bodytext text-lg mb-6" style="line-height:1.6;">
-      If you're weighing a villa purchase in Kerala right now, a few questions are probably on your mind:
-    </p>
-    <div class="grid sm:grid-cols-3 gap-4 mb-8">
-      <div class="bg-white rounded-xl p-5 border border-sagetint">
-        <p class="text-bodytext text-[15px]">Will construction actually finish on the date they promise?</p>
-      </div>
-      <div class="bg-white rounded-xl p-5 border border-sagetint">
-        <p class="text-bodytext text-[15px]">Can I trust a builder to manage everything if I'm overseas or busy at work?</p>
-      </div>
-      <div class="bg-white rounded-xl p-5 border border-sagetint">
-        <p class="text-bodytext text-[15px]">Will the bank loan process drag on for months?</p>
-      </div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="font-serif font-semibold text-ink text-[28px] sm:text-3xl lg:text-4xl mb-4">Experience Luxury Living at Aina Harmony</h2>
+    <p class="text-bodytext text-[17px] max-w-2xl mx-auto mb-8" style="line-height:1.6;">From striking modern luxury design to inviting spaces and a beautiful community setting, every frame offers a glimpse into a life of luxury &amp; comfort. See what makes it special place to call home</p>
+    <div class="rounded-2xl overflow-hidden shadow-xl bg-ink" style="aspect-ratio:16/9;">
+      <iframe src="https://www.youtube-nocookie.com/embed/HudRUtJEznM" title="Aina Harmony video tour" width="100%" height="100%" style="border:0;display:block;" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
-    <p class="text-bodytext text-[15px] mb-4" style="line-height:1.6;">
-      Most builders sub-contract the work out. Different crews, different standards, and nobody
-      fully accountable when a deadline slips. Buyers end up chasing site engineers on WhatsApp for updates
-      that never quite arrive on time.
-    </p>
-    <p class="text-bodytext text-[15px] mb-8" style="line-height:1.6;">
-      CMR builds every villa with its own in-house team, from the first brick to the final handover.
-      Over the last two years that team has handed over 100 villas, on schedule, every single time.
-    </p>
-    <a href="#project" class="inline-block bg-ink hover:bg-inksoft text-white font-semibold px-6 py-3 rounded-lg text-sm transition-colors">
-      See Angamaly Villa Project
-    </a>
+    <button onclick="openModal('video')" class="mt-8 bg-gold hover:bg-goldsoft text-white font-bold px-8 py-4 rounded-lg text-[15px] transition-colors">
+      Book a Site Visit Today
+    </button>
   </div>
 </section>
 
-<!-- ============ PROJECT SPOTLIGHT — Aina Harmony only ============ -->
-<section id="project" class="bg-white py-16 sm:py-20">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="font-serif font-semibold text-ink text-[28px] sm:text-3xl lg:text-4xl mb-3 text-center">Aina Harmony, Angamaly</h2>
-    <p class="text-bodytext text-center max-w-xl mx-auto mb-10">CMR's Ernakulam address, 30 minutes from Cochin International Airport.</p>
-
-    <div class="rounded-2xl border border-sagetint overflow-hidden">
-      <div class="h-64 sm:h-80 overflow-hidden">
-        <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/09/aina-harmony-angamaly-scaled.jpeg" alt="Aina Harmony villa exterior in Angamaly" class="content-photo" loading="lazy">
+<!-- ============ AMENITIES ============ -->
+<section id="amenities" class="bg-white py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="font-serif font-semibold text-ink text-[28px] sm:text-3xl lg:text-4xl mb-4 text-center">More to enjoy. More ways to live. All in one community.</h2>
+    <p class="text-bodytext text-[17px] max-w-2xl mx-auto mb-10 text-center" style="line-height:1.6;">With 40+ modern amenities, Aina Harmony brings leisure, recreation and relaxation closer to home.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl overflow-hidden border border-sagetint shadow-sm">
+        <div class="h-48 sm:h-52 overflow-hidden"><img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/club-house-1.jpg" alt="1750 sq.ft. Club House at Aina Harmony" class="content-photo" loading="lazy"></div>
+        <h3 class="font-semibold text-ink text-[15px] px-5 py-4">1750 sq.ft. Club House</h3>
       </div>
-      <div class="p-7 sm:p-9">
-        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
-          <h3 class="font-serif font-semibold text-ink text-xl">Aina Harmony</h3>
-          <span class="text-xs font-semibold bg-sagetint text-sage px-3 py-1 rounded-full">On Going · 20% complete</span>
-        </div>
-        <p class="text-bodytext text-sm mb-5" style="line-height:1.6;">
-          Angamaly, Ernakulam. Built around 60 cents of shared facilities, including a swimming pool,
-          a 1,500 sq. ft. conference hall and library, a club house, and a shuttle court, all within
-          a fully gated and CCTV-secured community.
-        </p>
-        <ul class="text-sm text-bodytext space-y-1.5 mb-6">
-          <li>32 premium villas · 3 BHK</li>
-          <li>1,500–2,800 sq.ft. · 6–10 cents</li>
-          <li>Swimming pool, club house, conference hall &amp; library, shuttle court</li>
-          <li>Open well + bore well + municipal water, biogas plant</li>
-          <li>From ₹60 Lakhs · Possession December 2026</li>
+      <div class="bg-white rounded-2xl overflow-hidden border border-sagetint shadow-sm">
+        <div class="h-48 sm:h-52 overflow-hidden"><img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/07/Swimming-Pool.jpg" alt="Swimming Pool (10 Mtr.x 5 Mtr.) at Aina Harmony" class="content-photo" loading="lazy"></div>
+        <h3 class="font-semibold text-ink text-[15px] px-5 py-4">Swimming Pool (10 Mtr.x 5 Mtr.)</h3>
+      </div>
+      <div class="bg-white rounded-2xl overflow-hidden border border-sagetint shadow-sm">
+        <div class="h-48 sm:h-52 overflow-hidden"><img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/gym.jpg" alt="Fully Furnished A/C GYM at Aina Harmony" class="content-photo" loading="lazy"></div>
+        <h3 class="font-semibold text-ink text-[15px] px-5 py-4">Fully Furnished A/C GYM</h3>
+      </div>
+      <div class="bg-white rounded-2xl overflow-hidden border border-sagetint shadow-sm">
+        <div class="h-48 sm:h-52 overflow-hidden"><img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/AC-Conference-Hall.jpg" alt="A/C Conference Hall at Aina Harmony" class="content-photo" loading="lazy"></div>
+        <h3 class="font-semibold text-ink text-[15px] px-5 py-4">A/C Conference Hall</h3>
+      </div>
+      <div class="bg-white rounded-2xl overflow-hidden border border-sagetint shadow-sm">
+        <div class="h-48 sm:h-52 overflow-hidden"><img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/07/Guest-Car-Parking.jpg" alt="Guest Car Parking at Aina Harmony" class="content-photo" loading="lazy"></div>
+        <h3 class="font-semibold text-ink text-[15px] px-5 py-4">Guest Car Parking</h3>
+      </div>
+      <div class="bg-white rounded-2xl overflow-hidden border border-sagetint shadow-sm">
+        <div class="h-48 sm:h-52 overflow-hidden"><img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/07/security.jpg" alt="Round the Clock Security at Aina Harmony" class="content-photo" loading="lazy"></div>
+        <h3 class="font-semibold text-ink text-[15px] px-5 py-4">Round the Clock Security</h3>
+      </div>
+    </div>
+    <div class="text-center mt-10">
+      <button onclick="openModal('amenities')" class="bg-gold hover:bg-goldsoft text-white font-bold px-8 py-4 rounded-lg text-[15px] transition-colors">
+        See What Awaits You
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY (same photos as cmrdevelopers.com/projects/aina-harmony#gallery) ============ -->
+<section id="gallery" class="bg-sagetint py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="font-serif font-semibold text-ink text-[28px] sm:text-3xl lg:text-4xl mb-4 text-center">From Vision to Reality</h2>
+    <p class="text-bodytext text-[17px] max-w-2xl mx-auto mb-10 text-center" style="line-height:1.6;">Browse the latest site photos to see the progress firsthand and get a closer look at your future villa.</p>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3">
+      <button type="button" onclick="openLightbox(this)" class="gallery-tile relative overflow-hidden rounded-xl col-span-2 row-span-2 h-[300px] sm:h-[420px] lg:h-[500px]" aria-label="View Aina Harmony gallery image 1">
+        <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/Villas-In-Kochi-Aina-Harmony-angamaly-8-1.jpg" alt="Aina Harmony gallery 1" class="content-photo gallery-img" loading="lazy">
+      </button>
+      <button type="button" onclick="openLightbox(this)" class="gallery-tile relative overflow-hidden rounded-xl h-[140px] sm:h-[200px] lg:h-[240px]" aria-label="View Aina Harmony gallery image 2">
+        <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/Villas-In-Kochi-Aina-Harmony-angamaly-1-1.jpg" alt="Aina Harmony gallery 2" class="content-photo gallery-img" loading="lazy">
+      </button>
+      <button type="button" onclick="openLightbox(this)" class="gallery-tile relative overflow-hidden rounded-xl h-[140px] sm:h-[200px] lg:h-[240px]" aria-label="View Aina Harmony gallery image 3">
+        <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/Villas-In-Kochi-Aina-Harmony-angamaly-2-1.jpg" alt="Aina Harmony gallery 3" class="content-photo gallery-img" loading="lazy">
+      </button>
+      <button type="button" onclick="openLightbox(this)" class="gallery-tile relative overflow-hidden rounded-xl h-[140px] sm:h-[200px] lg:h-[240px]" aria-label="View Aina Harmony gallery image 4">
+        <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/Villas-In-Kochi-Aina-Harmony-angamaly-9-1.jpg" alt="Aina Harmony gallery 4" class="content-photo gallery-img" loading="lazy">
+      </button>
+      <button type="button" onclick="openLightbox(this)" class="gallery-tile relative overflow-hidden rounded-xl h-[140px] sm:h-[200px] lg:h-[240px]" aria-label="View Aina Harmony gallery image 5">
+        <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/Villas-In-Kochi-Aina-Harmony-angamaly-3-1.jpg" alt="Aina Harmony gallery 5" class="content-photo gallery-img" loading="lazy">
+      </button>
+      <button type="button" onclick="openLightbox(this)" class="gallery-tile relative overflow-hidden rounded-xl h-[140px] sm:h-[200px] lg:h-[240px]" aria-label="View Aina Harmony gallery image 6">
+        <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/Villas-In-Kochi-Aina-Harmony-angamaly-4-1.jpg" alt="Aina Harmony gallery 6" class="content-photo gallery-img" loading="lazy">
+      </button>
+      <button type="button" onclick="openLightbox(this)" class="gallery-tile relative overflow-hidden rounded-xl h-[140px] sm:h-[200px] lg:h-[240px]" aria-label="View Aina Harmony gallery image 7">
+        <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/Villas-In-Kochi-Aina-Harmony-angamaly-5-1.jpg" alt="Aina Harmony gallery 7" class="content-photo gallery-img" loading="lazy">
+      </button>
+      <button type="button" onclick="openLightbox(this)" class="gallery-tile relative overflow-hidden rounded-xl h-[140px] sm:h-[200px] lg:h-[240px]" aria-label="View Aina Harmony gallery image 8">
+        <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/Villas-In-Kochi-Aina-Harmony-angamaly-6-1.jpg" alt="Aina Harmony gallery 8" class="content-photo gallery-img" loading="lazy">
+      </button>
+      <button type="button" onclick="openLightbox(this)" class="gallery-tile relative overflow-hidden rounded-xl h-[140px] sm:h-[200px] lg:h-[240px]" aria-label="View Aina Harmony gallery image 9">
+        <img src="https://backendcmr.skillycat.com/wp-content/uploads/2026/06/Villas-In-Kochi-Aina-Harmony-angamaly-7-1.jpg" alt="Aina Harmony gallery 9" class="content-photo gallery-img" loading="lazy">
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATION (map from cmrdevelopers.com/projects/aina-harmony#location) ============ -->
+<section id="location" class="bg-white py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="font-serif font-semibold text-ink text-[28px] sm:text-3xl lg:text-4xl mb-10 text-center">Location Advantages</h2>
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div class="rounded-2xl overflow-hidden shadow-lg border border-sagetint h-[320px] sm:h-[400px] lg:h-[440px]">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5521.7334368638985!2d76.34217687632733!3d10.215855289900885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080536b3661f87%3A0x574feb61b7db4f39!2sCMR%20-%20AINA%20HARMONY%20VILLA%20PROJECT%2C%20ANGAMALI!5e1!3m2!1sen!2sin!4v1785840101758!5m2!1sen!2sin" width="100%" height="100%" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing the location of Aina Harmony villa project, Angamaly"></iframe>
+      </div>
+      <div>
+        <h3 class="font-serif font-semibold text-ink text-2xl sm:text-[28px] mb-3">Well Connected. Wonderfully Peaceful.</h3>
+        <p class="text-bodytext text-[17px] mb-6" style="line-height:1.6;">Set in Angamaly, Kochi, Aina Harmony brings peaceful surroundings and everyday essentials within easy reach.</p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-4 bg-white border border-sagetint rounded-xl px-4 py-3.5">
+            <span class="w-10 h-10 rounded-full bg-sagetint text-ink flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 12h2m2 0h2M9 16h2m2 0h2"/></svg></span>
+            <span class="text-bodytext text-[15px]"><span class="font-bold text-ink">5 min drive</span> &ndash; Town Centre</span>
+          </li>
+          <li class="flex items-center gap-4 bg-white border border-sagetint rounded-xl px-4 py-3.5">
+            <span class="w-10 h-10 rounded-full bg-sagetint text-ink flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M8 3 5 21M16 3l3 18M12 4v3m0 4v3m0 4v3"/></svg></span>
+            <span class="text-bodytext text-[15px]"><span class="font-bold text-ink">10 min drive</span> &ndash; National Highway</span>
+          </li>
+          <li class="flex items-center gap-4 bg-white border border-sagetint rounded-xl px-4 py-3.5">
+            <span class="w-10 h-10 rounded-full bg-sagetint text-ink flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M10.5 13.5 3 11l1-2 8 .5 4-5a1.5 1.5 0 0 1 2.2 2l-3.2 5.5 1 5.5-2 .8-3-5.3-3.5 1z" transform="rotate(8 12 12)"/></svg></span>
+            <span class="text-bodytext text-[15px]"><span class="font-bold text-ink">30 min drive</span> &ndash; Airport</span>
+          </li>
+          <li class="flex items-center gap-4 bg-white border border-sagetint rounded-xl px-4 py-3.5">
+            <span class="w-10 h-10 rounded-full bg-sagetint text-ink flex items-center justify-center flex-shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.2L20 7H6.2"/><circle cx="9" cy="19.5" r="1.2"/><circle cx="17" cy="19.5" r="1.2"/></svg></span>
+            <span class="text-bodytext text-[15px]"><span class="font-bold text-ink">2 min walk</span> &ndash; Supermarket</span>
+          </li>
         </ul>
-        <button onclick="openModal('project_aina')" class="w-full sm:w-auto bg-gold hover:bg-goldsoft text-white font-semibold px-8 py-3.5 rounded-lg text-sm transition-colors">
-          Book a Site Visit
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA BLOCK ============ -->
+<section class="bg-white pb-16 sm:pb-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative rounded-3xl overflow-hidden text-center px-6 py-14 sm:py-20" style="background-image:linear-gradient(rgba(20,43,34,0.82),rgba(20,43,34,0.78)),url('https://backendcmr.skillycat.com/wp-content/uploads/2026/06/Villas-In-Kochi-Aina-Harmony-angamaly-8-1.jpg');background-size:cover;background-position:center;">
+      <h2 class="font-serif font-semibold text-white text-[28px] sm:text-4xl max-w-3xl mx-auto mb-4" style="line-height:1.25;">A Decision This Important Deserves a Closer Look.</h2>
+      <p class="text-[#D7E3DB] text-[17px] max-w-2xl mx-auto mb-8" style="line-height:1.6;">Take an hour to visit the CMR Villa Project in Angamaly, explore the location, see the construction progress firsthand, and decide with confidence.</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <button onclick="openModal('closing_block')" class="bg-gold hover:bg-goldsoft text-white font-bold px-8 py-4 rounded-lg text-[15px] transition-colors">
+          Book Your Site Visit Now
         </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ HOW IT WORKS (C4, 4 steps) ============ -->
-<section class="bg-sagetint py-16 sm:py-20">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="font-serif font-semibold text-ink text-[28px] sm:text-3xl mb-12 text-center">From Enquiry to Handover, Without the Runaround</h2>
-    <div class="grid sm:grid-cols-4 gap-6">
-      <div>
-        <div class="text-gold font-serif font-semibold text-3xl mb-2">1</div>
-        <h3 class="font-semibold text-ink mb-1 text-[15px]">Book your site visit</h3>
-        <p class="text-bodytext text-sm">Confirmed within 24 hours of your enquiry.</p>
-      </div>
-      <div>
-        <div class="text-gold font-serif font-semibold text-3xl mb-2">2</div>
-        <h3 class="font-semibold text-ink mb-1 text-[15px]">Walk the community</h3>
-        <p class="text-bodytext text-sm">Our team shows you Aina Harmony in person.</p>
-      </div>
-      <div>
-        <div class="text-gold font-serif font-semibold text-3xl mb-2">3</div>
-        <h3 class="font-semibold text-ink mb-1 text-[15px]">Pick your villa</h3>
-        <p class="text-bodytext text-sm">Choose your plot size and 3 BHK layout.</p>
-      </div>
-      <div>
-        <div class="text-gold font-serif font-semibold text-3xl mb-2">4</div>
-        <h3 class="font-semibold text-ink mb-1 text-[15px]">Loan &amp; agreement</h3>
-        <p class="text-bodytext text-sm">We coordinate with our 5 empanelled banks for you.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TESTIMONIALS ============ -->
-<section class="bg-white py-16 sm:py-20">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="font-serif font-semibold text-ink text-[28px] sm:text-3xl mb-2 text-center">What CMR Homeowners Say</h2>
-    <p class="text-bodytext text-center mb-12">Real reviews from cmrdevelopers.com — not written for this page.</p>
-    <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-      <div class="bg-sagetint rounded-2xl p-6">
-        <p class="text-bodytext text-[15px] mb-4" style="line-height:1.6;">"CMR's in-house team handled everything. No sub-contractors, no confusion, no delays."</p>
-        <p class="font-semibold text-ink text-sm">Dr Priya Nambiar</p>
-        <p class="text-bodytext text-xs">Karuvanchal, Kannur · Bought CMR Aiza Gardens</p>
-      </div>
-      <div class="bg-sagetint rounded-2xl p-6">
-        <p class="text-bodytext text-[15px] mb-4" style="line-height:1.6;">"I was in Sharjah. Every stage was documented, every payment receipted, the handover matched exactly what was promised."</p>
-        <p class="font-semibold text-ink text-sm">Abdul Latheef K.V.</p>
-        <p class="text-bodytext text-xs">Sharjah, UAE · Bought Aiza Diamond Hills</p>
+        <a href="tel:+919744475555" onclick="trackCall('closing_block')" class="inline-flex items-center gap-2 border border-white/50 hover:border-white text-white font-semibold px-8 py-4 rounded-lg text-[15px] transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg> Talk to Chairman
+        </a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="bg-sagetint py-16 sm:py-20">
+<section id="faq" class="bg-sagetint py-16 sm:py-20">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="font-serif font-semibold text-ink text-[28px] sm:text-3xl mb-10 text-center">Common Questions</h2>
     <div class="space-y-3" id="faq-list">
@@ -358,22 +376,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ============ FINAL CTA (below the fold — this is where the Chairman call lives) ============ -->
-<section class="hero-solid py-16 sm:py-20">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="font-serif font-semibold text-white text-[28px] sm:text-3xl lg:text-4xl mb-4">You're One Site Visit Away From Your Angamaly Address.</h2>
-    <p class="text-[#D7E3DB] mb-8 text-[17px]">Confirmed within 24 hours. No pressure, no obligation.</p>
-    <div class="flex flex-wrap gap-4 justify-center">
-      <button onclick="openModal('final_cta')" class="bg-gold hover:bg-goldsoft text-white font-bold px-8 py-4 rounded-lg text-[15px] transition-colors">
-        Book a Site Visit
-      </button>
-      <a href="tel:+919744475555" onclick="trackCall('final_cta')" class="border border-white/40 hover:border-white text-white font-semibold px-8 py-4 rounded-lg text-[15px] transition-colors">
-        Talk to Chairman
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- ============ FOOTER (stripped, paid-ad LP) ============ -->
 <footer class="bg-ink py-6">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -384,6 +386,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ============ STICKY MOBILE CTA (single CTA, consistent with above-fold rule) ============ -->
 <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-sagetint p-3 sm:hidden z-40">
   <button onclick="openModal('sticky_mobile')" class="w-full bg-gold text-white font-bold text-sm py-3 rounded-lg">Book a Site Visit</button>
+</div>
+
+<!-- ============ GALLERY LIGHTBOX ============ -->
+<div id="lightbox" class="hidden fixed inset-0 z-50 items-center justify-center p-4" style="background:rgba(10,20,15,0.9);" onclick="closeLightbox()">
+  <button onclick="closeLightbox()" aria-label="Close" class="absolute top-4 right-5 text-white text-3xl leading-none">&times;</button>
+  <img id="lightbox-img" src="" alt="" class="max-h-full max-w-full rounded-lg">
 </div>
 
 <!-- ============ LEAD MODAL ============ -->
@@ -522,6 +530,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     return false;
   }
+
+  function toggleMenu(){
+    var m = document.getElementById('mobile-menu');
+    var open = m.classList.toggle('hidden') === false;
+    document.getElementById('menu-btn').setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  function openLightbox(tile){
+    var img = tile.querySelector('img');
+    var box = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-img').alt = img.alt;
+    box.classList.remove('hidden'); box.classList.add('flex');
+  }
+  function closeLightbox(){
+    var box = document.getElementById('lightbox');
+    box.classList.add('hidden'); box.classList.remove('flex');
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeLightbox();
+  });
 
   // Click-to-call tracking. NOTE: this fires a GTM event on click intent only.
   // True call attribution (recording, connected-call duration) needs a call-tracking
